@@ -13,9 +13,14 @@ http://52.35.141.102/
 apt-get upgrade
 ```
 
-### Add user
+### Add user grader and copy root ssh authorized_keys
 
+```
 useradd -d /home/grader -s /bin/bash grader
+mkdir /home/grader/.ssh
+cp ~/.ssh/authorized_keys  /home/grader/.ssh/
+chown grader.grader /home/grader/.ssh
+```
 
 ### Give grader user sudo
 
@@ -27,6 +32,7 @@ grader    ALL=(ALL)    NOPASSWD: ALL
 ### Change SSH Port to 2200
 
 Edit /etc/ssh/sshd_config and change 'Port' Port 2200
+Change PermitRootLogin to no
 Restart ssh service
 ```
 service ssh restart
