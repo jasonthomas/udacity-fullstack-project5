@@ -117,6 +117,6 @@ Restart Apache HTTPD
 service apache2 restart
 ```
 
-### A list of any third-party resources you made use of to complete this project.
-http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/ - I haven't worked with apache and mod_wsgi in a long time, this document was helpful.
-/etc/services - great for common port numbers and internet services
+### A list of any third-party resources I used
+* http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/ - I haven't worked with apache and mod_wsgi in a long time, this document was helpful.
+* /etc/services - great for common port numbers and internet services
