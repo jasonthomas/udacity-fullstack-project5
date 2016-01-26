@@ -8,6 +8,11 @@ http://52.35.141.102/
 
 ## Configuration Changes and Software Installation
 
+### Upgrade all available packages on server
+```
+apt-get upgrade
+```
+
 ### Add user
 
 useradd -d /home/grader -s /bin/bash grader
@@ -35,8 +40,9 @@ UFW has a default DENY policy, so you should make sure that you have the correct
 ufw allow 2200/tcp
 ufw allow 80/tcp
 ufw allow 123/tcp
-ufw allow 123/udp /etc/services
+ufw allow 123/udp
 ufw enable
+ufw status
 ```
 
 ### Set time to UTC
@@ -71,7 +77,8 @@ Download catalog app, and extract into /data/catalog
 ```
 mkdir /data/catalog
 unzip -d /data/catalog catalog.app.zip
-
+```
+Configure your database connection string within your application.
 
 ### Create a catalog user for usw with apache and mod_wsgi
 ```
@@ -98,7 +105,9 @@ Create file /etc/apache2/sites-available/catalog.conf
     </Directory>
 </VirtualHost>
 ```
+
 Symlink /etc/apache2/sites-available/catalog.conf to /etc/apache2/sites-enabled/catalog.conf
+
 ```
 ln -s /etc/apache2/sites-available/catalog.conf /etc/apache2/sites-enabled/catalog.conf
 ```
@@ -107,3 +116,7 @@ Restart Apache HTTPD
 ```
 service apache2 restart
 ```
+
+### A list of any third-party resources you made use of to complete this project.
+http://flask.pocoo.org/docs/0.10/deploying/mod_wsgi/ - I haven't worked with apache and mod_wsgi in a long time, this document was helpful.
+/etc/services - great for common port numbers and internet services
