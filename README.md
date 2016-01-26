@@ -60,9 +60,11 @@ ln -s /usr/share/zoneinfo/UTC /etc/localtime
 ```
 
 ### Install packages for catalog app
+```
 apt-get install apache2 libapache2-mod-wsgi
 apt-get install postgresql-9.3
 apt-get install python-flask python-psycopg2 python-sqlalchemy python-oauth2client
+```
 
 ### Configure postgres to listen on localhost only
 Edit /etc/postgresql/9.3/main/postgresql.conf and make listen_addresses = 'localhost', although this is the default configuration
